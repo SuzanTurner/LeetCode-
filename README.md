@@ -1,4 +1,4 @@
-# Asteroid Collision Solution
+# 2126. Asteroid Collision Solution
 
 ## Intuition
 The idea is simple — if you can absorb a smaller or equal-sized asteroid, your mass increases by its size. To maximize survival chances, absorb smaller asteroids first. Sorting the list ensures you always encounter the smallest possible asteroid next.
