@@ -1,3 +1,47 @@
+# 345. Reverse Vowels of a String - LeetCode
+
+## 🔗 Problem Link
+[LeetCode - Reverse Vowels of a String](https://leetcode.com/problems/reverse-vowels-of-a-string/)
+
+## ✅ Intuition
+My first thought was: “We only care about vowels — so let’s grab them, reverse them, and drop them back in like nothing happened.”
+
+We don’t need to reverse the whole string or worry about consonants. Just treat the vowels like VIPs, reverse their order, and stitch them back while keeping all other characters in place.
+
+## 🧠 Approach
+1. Convert the string into a list so it's mutable.
+2. Create a list of vowels (both lowercase and uppercase, 'cause equality).
+3. Iterate through the string and store all vowels in a separate list.
+4. Loop through the string again — when a vowel is encountered, replace it with the corresponding vowel from the reversed list.
+5. Finally, join the list back into a string and return it.
+
+## Complexity
+- **Time complexity:**  $$O(n)$$  
+  (One pass to collect vowels, one to replace them — linear time overall)
+
+- **Space complexity:**  $$O(n)$$  
+  (We're storing the string as a list and the vowels separately — both proportional to the size of the input.)
+
+## 💻 Code
+
+```python
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        s = list(s)
+        vowels = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
+        v = []
+        for i in s:
+            if i in vowels:
+                v.append(i)
+        j = 1
+        for i in range(len(s)):
+            if s[i] in vowels:
+                s[i] = v[len(v) - j]
+                j += 1
+        return ''.join(s)
+```
+
+
 # 2126. Asteroid Collision Solution
 
 ## Intuition
