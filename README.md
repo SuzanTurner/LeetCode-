@@ -28,6 +28,32 @@ $$O(n)$$ — for storing the list of words and the final output string.
 ```python
 class Solution:
     def reverseWords(self, s: str) -> str:
+        words = []
+        s = s.strip()  # Remove leading/trailing spaces
+        k = 0
+
+        for i in range(len(s)):
+            if s[i] == ' ':
+                # Only add non-empty words (skip multiple spaces)
+                if s[k:i] != '':
+                    words.append(s[k:i])
+                k = i + 1
+
+        # Add the last word (after the loop ends)
+        if s[k:] != '':
+            words.append(s[k:])
+
+        print("Before reversing:", words)
+        words = words[::-1]
+        print("After reversing:", words)
+
+        # Join words with a single space
+        return ' '.join(words)
+```
+## Or we can simply use the pythonic one liner: 
+```python
+class Solution:
+    def reverseWords(self, s: str) -> str:
         return ' '.join(s.strip().split()[::-1])
 ```
 
