@@ -1,3 +1,36 @@
+# 151. Reverse Words - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Reverse Words of a String](https://leetcode.com/problems/reverse-words-in-a-string/)
+
+## Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+The goal is to reverse the **order** of words, not the characters within them.  
+First thought: use Python's built-in string handling to strip extra spaces, split the words, reverse the list, and join them with a single space.
+
+## Approach
+<!-- Describe your approach to solving the problem. -->
+1. Use `strip()` to remove leading/trailing whitespace.
+2. Use `split()` to break the string into words — this automatically handles multiple spaces.
+3. Reverse the list of words using slicing (`[::-1]`).
+4. Use `' '.join(...)` to combine the words into a single space-separated string.
+
+## Complexity
+- Time complexity:  
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->  
+$$O(n)$$ — where *n* is the length of the input string. We traverse the string a few times: stripping, splitting, and joining.
+
+- Space complexity:  
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->  
+$$O(n)$$ — for storing the list of words and the final output string.
+
+## Code
+```python
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        return ' '.join(s.strip().split()[::-1])
+```
+
 # 345. Reverse Vowels of a String - LeetCode
 
 ## 🔗 Problem Link
