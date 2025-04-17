@@ -57,6 +57,61 @@ class Solution:
         return ' '.join(s.strip().split()[::-1])
 ```
 
+---
+
+# 238. Product of Array Except Self - Medium
+
+## 🔗 Problem Link
+[LeetCode - Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
+
+## 💡 Intuition
+
+- The brute-force approach calculates the product for each index by multiplying all the other numbers in the array, but this takes O(n^2) time.
+- The optimal solution avoids using division by using prefix and suffix arrays to hold the running product from the left and the right.
+
+## 🧠 Approach
+
+- Initialize an array `result` to hold the final products.
+- Use two passes through the array: one to calculate the prefix product and one to calculate the suffix product.
+- Multiply the prefix and suffix products for each index to get the final product except self for that index.
+
+## ⏱ Time Complexity
+
+- **Time:** O(n)
+- **Space:** O(1) (excluding output array)
+
+## 📦 Code
+
+```python
+from typing import List
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        product = 1
+        zero_count = 0
+
+        for num in nums:
+            if num == 0:
+                zero_count += 1
+            else:
+                product *= num
+
+        result = []
+        for num in nums:
+            if zero_count == 0:
+                result.append(product // num)
+            elif zero_count == 1:
+                if num == 0:
+                    result.append(product)
+                else:
+                    result.append(0)
+            else:
+                result.append(0)
+
+        return result
+```
+---
+
 # 345. Reverse Vowels of a String - LeetCode
 
 ## 🔗 Problem Link
@@ -100,6 +155,7 @@ class Solution:
         return ''.join(s)
 ```
 
+---
 
 # 2126. Asteroid Collision Solution
 
@@ -132,6 +188,8 @@ class Solution:
                 return False
         return True
 ```
+
+---
 
 # 169. Majority Element - LeetCode
 
