@@ -1,3 +1,51 @@
+# 34. Find First and Last Position of Target in Array - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Find First and Last Position of Target in Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+## 💡 Intuition
+
+We use binary search (via the `bisect` module) to find the leftmost and rightmost indices where the target occurs in the sorted array.
+
+- **Left Bound:** The first position where the target can be inserted (or the first occurrence of the target).
+- **Right Bound:** The last position where the target can be inserted (or the last occurrence of the target).
+
+## 🧠 Approach
+
+1. **Find Left Bound:** Use `bisect_left` to find the leftmost position where the target can be inserted (or the first occurrence of the target).
+2. **Find Right Bound:** Use `bisect_right` to find the rightmost position and subtract `1` to get the index of the last occurrence of the target.
+3. **Check for Target:** If the target is not found in the list, return `[-1, -1]`.
+4. **Return Result:** If the target exists, return the range `[left, right]`.
+
+## ⏱ Time Complexity
+
+- **Time Complexity:** `O(log n)` for both `bisect_left` and `bisect_right` operations.
+- **Space Complexity:** `O(1)` (excluding the input and output).
+
+## 📦 Code
+
+```python
+import bisect
+from typing import List
+
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        # Find the leftmost position for the target
+        left = bisect.bisect_left(nums, target)
+        
+        # Find the rightmost position for the target
+        right = bisect.bisect_right(nums, target) - 1
+        
+        # If the target is not found, return [-1, -1]
+        if left == len(nums) or nums[left] != target:
+            left = right = -1
+        
+        return [left, right]
+```
+
+---
+
+
 # 151. Reverse Words - LeetCode (Medium)
 
 ## 🔗 Problem Link
