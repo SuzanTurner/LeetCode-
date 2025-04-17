@@ -59,7 +59,7 @@ class Solution:
 
 ---
 
-# 238. Product of Array Except Self - Medium
+# 238. Product of Array Except Self - LeetCode (Medium)
 
 ## 🔗 Problem Link
 [LeetCode - Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
