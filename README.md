@@ -267,3 +267,48 @@ class Solution:
                 return i
 
 ```
+---
+
+# 2563. Count the Number of Fair Pairs - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Count the Number of Fair Pairs](https://leetcode.com/problems/count-the-number-of-fair-pairs/)
+
+## 💡 Intuition
+We ust find the number of pairs that lie between `lower` and `upper`. Brute force two-point algorithm can be used, but that would lead to time complexity as 0(n^2), which results in TLE. Threrefore, we follow sort + binary-search. Since python has built in library called `bisect` for binary search operations, it becomes a lot easier. 
+
+## 🧠 Approach
+1. First sort the array
+2. Loop through the elements using a simple for loop.
+3. `min_val` = `lower` - nums[i]
+4. `max_val` = `upper` - nums[i]
+5. Using bisect, we find out the leftmost and rightmost values that obey the conditions of a fair pair.
+6. Add these values to `pairs`
+
+## ⏱ Complexity
+- **Time complexity:**  $$O(nlog n)$$  
+  (because of sorting the list of `n` elements and using binary search)
+
+- **Space complexity:**  $$O(1)$$  
+  (We're only using constant extra space (O(1)), aside from sorting the input list in-place)
+
+## ✅ Code
+
+```python
+import bisect
+from typing import List
+
+class Solution:
+    def countFairPairs(self, nums: List[int], lower: int, upper: int) -> int:
+        nums = sorted(nums)
+        pairs = 0
+        for i in range(len(nums)):
+            min_val = lower - nums[i]
+            max_val = upper - nums[i]
+
+            left = bisect.bisect_left(nums, min_val, i+1)
+            right = bisect.bisect_right(nums, max_val, i+1)
+
+            pairs += (right - left)
+        return pairs
+```
