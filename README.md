@@ -45,10 +45,10 @@ class Solution:
 
 ---
 
-# 122. Best Time to Buy and Sell Stock - LeetCode (Medium)
+# 122. Best Time to Buy and Sell Stock II - LeetCode (Medium)
 
 ## 🔗 Problem Link
-[LeetCode - Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
+[LeetCode - Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
 
 ## 💡 Intuition
 As we look as the example questions, we can see that regardless of what the stocks are, they are being bought and sold on the very next day, and then bought again and sold on the very next day, as many times as possible to get the highest profit. 
