@@ -45,6 +45,42 @@ class Solution:
 
 ---
 
+# 122. Best Time to Buy and Sell Stock - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
+## 💡 Intuition
+As we look as the example questions, we can see that regardless of what the stocks are, they are being bought and sold on the very next day, and then bought again and sold on the very next day, as many times as possible to get the highest profit. 
+
+## 🧠 Approach
+
+1. We first set max_profit as 0.
+2. We loop through `prices`
+3. if `prices[i] - prices[i-1] > 0` then `max_profit += prices[i] - prices[i-1]`
+4. return max_profit
+
+## ⏱ Time Complexity
+
+- **Time Complexity:** `O(n)` (As we run a single for loop)
+- **Space Complexity:** `O(1)` 
+
+## 📦 Code
+
+```python
+from typing import List
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        max_profit = 0
+        for i in range(1,len(prices)):
+            if prices[i] - prices[i-1] > 0:
+                max_profit += prices[i] - prices[i-1]
+        return max_profit
+
+```
+
+---
 
 # 151. Reverse Words - LeetCode (Medium)
 
@@ -312,3 +348,4 @@ class Solution:
             pairs += (right - left)
         return pairs
 ```
+---
