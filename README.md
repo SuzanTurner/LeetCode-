@@ -1,7 +1,7 @@
 # 11. Container with the Most Water - LeetCode (Medium)
 
 ## 🔗 Problem Link
-[LeetCode - Container with the Most Water](https://leetcode.com/problems/container-with-the-most-water/)
+[LeetCode - Container with the Most Water](https://leetcode.com/problems/container-with-most-water/)
 
 ## 💡 Intuition
 
