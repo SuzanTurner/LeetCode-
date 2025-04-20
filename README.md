@@ -1,3 +1,47 @@
+# 11. Container with the Most Water - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Container with the Most Water](https://leetcode.com/problems/container-with-the-most-water/)
+
+## 💡 Intuition
+
+We use two-pointer algorithm to find the area of the largest container. Using two loops would make time complexity  $$O(n^2)$$, which is a lot. Therefore, we shall have one pointer at the start of the array and one pointer at the end. Both move towards each other and area is continuously calculated at each iteration.  
+
+## 🧠 Approach
+1. Assign `i = 0` which is the pointer at the start and `j = len(height) - 1` as pointer at the end.
+2. Run a while loop with the condition that `i!=j`
+3. `a = min(height[i],height[j]) * (j-i)` stores area at that particular iteration
+4. `area` stores maximum of all the areas found.
+5. Only one pointer changes value after each iteration and that is decided by their heights. If `height[i] > height[j]` then pointer j is shifted to the left (decreased by 1) and if `height[j] > height[i]`, pointer i is shifted to the right, that is increased by 1.
+
+## ⏱ Time Complexity
+
+- **Time Complexity:** `O(n)` as we pass through the list only once.
+- **Space Complexity:** `O(1)` since we are tracking only one variable.
+
+**This solution beats 90.56% solutions in terms of space complexity**
+
+
+## 📦 Code
+
+```python
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        area = 0
+        j = len(height) - 1
+        i = 0
+        while i != j:
+            a = min(height[i],height[j]) * (j-i)
+            area = max(a,area)
+            if height[i] < height[j]:
+                i += 1
+            else:
+                j -= 1
+        return area
+
+```
+---
+
 # 34. Find First and Last Position of Target in Array - LeetCode (Medium)
 
 ## 🔗 Problem Link
