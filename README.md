@@ -241,6 +241,46 @@ class Solution:
 
 ---
 
+# 781. Rabbits in Forest - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Rabbits in Forest](https://leetcode.com/problems/rabbits-in-forset/)
+
+## ✅ Intuition
+The group size is always gonna be `answers[i] + 1` as it refers to rabbits of same colour *excluding* itself. Number of groups is therefore given by `num_groups = math.ceil(count[x] / group_size)` and total will be continued sum of number of groups multipled by group size.
+
+## 🧠 Approach
+1. Import Counter and count freq of every element in answers
+2. Loop through each of the elements in count
+3. Find group size and number of groups.
+
+
+## Complexity
+- **Time complexity:**  $$O(n + k)$$  where k is number of unique values in `answers`
+
+- **Space complexity:**  $$O(n)$$  
+
+## 💻 Code
+
+```python
+from collections import Counter
+import math
+
+class Solution:
+    def numRabbits(self, answers: List[int]) -> int:
+        count = Counter(answers)
+        total = 0
+        
+        for i in count:
+            group_size = i+1
+            num_groups = math.ceil(count[i] / group_size)
+            total += num_groups * group_size
+        return total
+
+
+```
+---
+
 # 2126. Asteroid Collision Solution
 
 ## Intuition
