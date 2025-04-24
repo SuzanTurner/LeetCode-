@@ -433,3 +433,45 @@ class Solution:
         return pairs
 ```
 ---
+
+# 2563. Count Complete Subarrays - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Count Complete Subarrays](https://leetcode.com/problems/count-complete=subarrays-in-an-array/)
+
+## 💡 Intuition
+Simple way to count the number of distinct elements in the input array and compare it to the elements in subarrays. We use `set` to find out distinct elements irrespective of its order. 
+
+## 🧠 Approach
+1. Compute `fullset = set(nums)`. This stores distinct elements from `nums`
+2. Run a for loop through the list `nums` and set value of `current` to `set()`, this will count number of distinct elements in the subarray.
+3. Run another for loop through the list starting from `i+1`, add each value of `nums[j]` to `current` and check if it is equal to `fullset`
+4. If `currect == fullset` then `total += 1`
+5. Return `total`
+
+## ⏱ Complexity
+- **Time complexity:**  $$O(n ^ 2)$$  
+  (because it has one outer loop and one inner loop)
+
+- **Space complexity:**  $$O(n)$$  
+  (because it stores only two sets: `fullset` and `current`)
+
+## ✅ Code
+
+```python
+from typing import List
+class Solution:
+    def countCompleteSubarrays(self, nums: List[int]) -> int:
+        total = 0
+        full_set = set(nums)
+
+        for i in range(len(nums)):
+            curr_set = set()
+            for j in range(i, len(nums)):
+                curr_set.add(nums[j])
+                if curr_set == full_set:
+                    total += 1
+        return total
+```
+---
+
