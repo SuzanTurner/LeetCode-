@@ -437,7 +437,7 @@ class Solution:
 # 2563. Count Complete Subarrays - LeetCode (Medium)
 
 ## 🔗 Problem Link
-[LeetCode - Count Complete Subarrays](https://leetcode.com/problems/count-complete=subarrays-in-an-array/)
+[LeetCode - Count Complete Subarrays](https://leetcode.com/problems/count-complete-subarrays-in-an-array/)
 
 ## 💡 Intuition
 Simple way to count the number of distinct elements in the input array and compare it to the elements in subarrays. We use `set` to find out distinct elements irrespective of its order. 
