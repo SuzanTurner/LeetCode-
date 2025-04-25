@@ -187,6 +187,52 @@ class Solution:
 
 ---
 
+# 167. Two Sum II (Array Input is Sorted)- LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Two Sum II](https://leetcode.com/problems/two-sum-ii-array-input-is-sorted/)
+
+## 💡 Intuition
+
+- Use Two Pointer algorithm to find the two indicies which add up to the target.
+- It is even simpler since the array is already sorted.
+
+## 🧠 Approach
+
+1. Initialise `i` to `0` and `j` to `len(numbers) - 1`. They will serve as out index positions.
+2. Run a while loop with the condition `i<j`
+3. If `numbers[i] + numbers[j] == target` then return `i+1` and `j+1` in the form of a list.
+4. Else, check if `numbers[i] + numbers[j]` is greater or lesser than target.
+5. If it is greater, means a smaller number is required, therefore shift `j -=1`
+6. Otherwise shift `i+=1`
+
+## ⏱ Time Complexity
+
+- **Time:** O(n) - only one while loop
+- **Space:** O(1) - no extra space used
+
+## 📦 Code
+
+```python
+from typing import List
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        i = 0
+        j = len(numbers) - 1
+        s = 0
+        while (i<j):
+            if target == (numbers[i] + numbers[j]):
+                return [i+1,j+1]
+            else:
+                if target > (numbers[i] + numbers[j]):
+                    i += 1
+                else:
+                    j -= 1
+
+```
+
+---
+
 # 238. Product of Array Except Self - LeetCode (Medium)
 
 ## 🔗 Problem Link
