@@ -477,7 +477,7 @@ class Solution:
 ```
 ---
 
-# 2563. Count Complete Subarrays - LeetCode (Medium)
+# 2799. Count Complete Subarrays - LeetCode (Medium)
 
 ## 🔗 Problem Link
 [LeetCode - Count Complete Subarrays](https://leetcode.com/problems/count-complete-subarrays-in-an-array/)
