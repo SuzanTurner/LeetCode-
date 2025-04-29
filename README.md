@@ -42,6 +42,39 @@ class Solution:
 ```
 ---
 
+# 33. Search in Rotated Sorted Array - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotaed-sorted-array/)
+
+## 💡 Intuition
+
+Since it says search element, we can use binary search. In fact, leetcode expects us to use binary search to solve this. But, since python already has a built in function - `index()`, it becomes even more simpler and optimised.
+Binary search would give O(nlogn) complexity, but using `index()` gives O(n) complexity.
+
+## 🧠 Approach
+
+1. Simplest one step approch - `return nums.index(target) `
+
+## ⏱ Complexity
+
+- **Time Complexity:** `O(n)` 
+- **Space Complexity:** `O(1)` - Constant Space
+
+## 📦 Code
+
+```python
+from typing import List
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        try:
+            return nums.index(target) 
+        except ValueError as e:
+            return -1
+```
+**We can use simple if-else instead of try-except block**
+---
+
 # 34. Find First and Last Position of Target in Array - LeetCode (Medium)
 
 ## 🔗 Problem Link
