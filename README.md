@@ -45,7 +45,7 @@ class Solution:
 # 33. Search in Rotated Sorted Array - LeetCode (Medium)
 
 ## 🔗 Problem Link
-[LeetCode - Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotaed-sorted-array/)
+[LeetCode - Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 ## 💡 Intuition
 
