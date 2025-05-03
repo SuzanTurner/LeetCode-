@@ -433,6 +433,41 @@ class Solution:
 ```
 ---
 
+# 852. Peak Index in Mountain Array - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Peak Index in Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/)
+
+## ✅ Intuition
+Peak element is when it is greater than its adjacent elements. Therefore, we simple return the index of the first peak elememnt we find. 
+
+## 🧠 Approach
+1. Pad the array with zeros in the start and the end, so that we do not miss peaks at the start or end of the array.
+2. Loop through the array
+3. Check if `arr[i-1] < arr[i] > arr[i+1]`
+4. If yes, return `i-1` ( -1 since we padded the array)
+5. Else return -1
+
+
+## Complexity
+- **Time complexity:**  $$O(n)$$ - single pass
+
+- **Space complexity:**  $$O(1)$$  
+
+## 💻 Code
+
+```python
+class Solution:
+    def peakIndexInMountainArray(self, arr: List[int]) -> int:
+        m = 0
+        arr = [0] + arr + [0]
+        for i in range(1, len(arr)-1):
+            if arr[i-1] < arr[i] > arr[i+1]:
+                return i - 1
+        return -1
+```
+---
+
 # 2126. Asteroid Collision Solution
 
 ## Intuition
