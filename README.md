@@ -438,6 +438,8 @@ class Solution:
             else:
                 return arr[len(arr) - k:]
 ```
+## Not your typical binary search code, but still works efficiently! ##
+
 ---
 
 # 781. Rabbits in Forest - LeetCode (Medium)
