@@ -393,6 +393,53 @@ class Solution:
 
 ---
 
+# 658. Find K Closest Elements - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)
+
+## ✅ Intuition
+Python's built in `bisect` function makes this very simple. We find the position of the element in the array if it exists and where it would be in the array if it dosen't exist. 
+We map their difference from `x` and store the difference and element in a tuple. We return the top `k` elements from the sorted tuple. 
+
+## 🧠 Approach
+1. First find the position of the element where it is or where it should be.
+2. If `p < len(arr) and p != 0`, store their absolute diffrence from `x` and original number in a tuple.
+3. Sort the tuple on the basis of their diffrence.
+4. Return top `k` elements of the tuple.
+5. If the position of the element is beyond the limits of the array, we return the first `k` elements of the array or last `k` elements of the array, depending on the value of `x`
+
+## Complexity
+- **Time complexity:**  $$O(klogk)$$  
+ List comprehension to compute diffs: O(n)
+ Sorting `diffs`: $$O(nlogn)$$
+ Extracting and sorting top k elements: $$O(klogk)$$
+
+- **Space complexity:**  $$O(n)$$  
+
+## 💻 Code
+
+```python
+from typing import List
+import bisect
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        p = bisect.bisect_left(arr,x)
+        print(p)
+        m = float('inf')
+        l = []
+        if p < len(arr) and p != 0:
+            diffs = [(abs(x - num), num) for num in arr] 
+            diffs.sort()  
+            return sorted([num for _, num in diffs[:k]])
+        else:
+            if p == 0:
+                return arr[:k]
+            else:
+                return arr[len(arr) - k:]
+```
+---
+
 # 781. Rabbits in Forest - LeetCode (Medium)
 
 ## 🔗 Problem Link
