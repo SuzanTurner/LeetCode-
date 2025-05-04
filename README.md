@@ -412,7 +412,9 @@ We map their difference from `x` and store the difference and element in a tuple
 ## Complexity
 - **Time complexity:**  $$O(klogk)$$  
  List comprehension to compute diffs: O(n)
+
  Sorting `diffs`: $$O(nlogn)$$
+ 
  Extracting and sorting top k elements: $$O(klogk)$$
 
 - **Space complexity:**  $$O(n)$$  
