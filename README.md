@@ -1,3 +1,40 @@
+# 4. Median of Two Sorted Arrays - LeetCode (Hard)
+
+## 🔗 Problem Link
+[LeetCode - Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+
+## 💡 Intuition
+Python's built-in `sort` function simplifies this **hard** problem. All have to do is add both arrays into a single array and sort it. If it is an odd-length array, we return the middle element, otherwise, we return the average of the middle two elements.
+We're ideally supposed to use binary-search, though hehe
+
+## 🧠 Approach
+1. Store the concatenated array in a single array and sort it.
+2. Return `float(nums[len(nums) // 2])` if the length of the array is odd
+3. Return `((nums[len(nums) // 2]) + (nums[(len(nums) // 2) - 1])) / 2` if the length is even
+
+## ⏱ Time Complexity
+
+- **Time Complexity:** `O((n + m) log(n + m))` (Sorting makes it heavy)
+- **Space Complexity:** `O(n + m)` nums1 + nums2 creates a new array → O(n + m) space
+
+## 📦 Code
+
+```python
+from typing import List
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        m = 0
+        nums = sorted(nums1 + nums2)
+        print(nums)
+        if len(nums) % 2 == 1:
+            return float(nums[len(nums) // 2])
+        else:
+            return ((nums[len(nums) // 2]) + (nums[(len(nums) // 2) - 1])) / 2
+
+```
+---
+
+
 # 11. Container with the Most Water - LeetCode (Medium)
 
 ## 🔗 Problem Link
