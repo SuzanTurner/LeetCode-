@@ -430,6 +430,37 @@ class Solution:
 
 ---
 
+# 394. Decode String - LeetCode (Medium)
+
+## 🔗 Problem Link
+[LeetCode - Decode String](https://leetcode.com/problems/decode-string/)
+
+## ✅ Intuition
+At first, it doesn't sound very easy, and yes, it is quite complex. Therefore, instead of using the traditional stack, I used Python's built-in regular expressions library, which greatly simplifies the problem.
+
+## 🧠 Approach
+1. Import `re`
+2. The pattern is `r'(\d+)\[([a-zA-Z]*)\]'`
+3. While '[' remains in the string, perform `s = re.sub(pattern, lambda m: int(m.group(1)) * m.group(2), s)`
+4. Return s
+
+## Complexity
+- **Time complexity:**  $$O(n^2)$$  (because we repeatedly scan and replace the string in a loop, potentially modifying the string in each iteration).
+- **Space complexity:**  $$O(n)$$  
+
+## 💻 Code
+
+```python
+class Solution:
+    def decodeString(self, s: str) -> str:
+        import re
+        pattern = r'(\d+)\[([a-zA-Z]*)\]'
+        while '[' in s:
+            s = re.sub(pattern, lambda m: int(m.group(1)) * m.group(2), s)
+        return s
+```
+---
+
 # 658. Find K Closest Elements - LeetCode (Medium)
 
 ## 🔗 Problem Link
